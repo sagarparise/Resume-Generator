@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="form1.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+</head>
+<body>
+  <div class="container">
+    <!-- left-side -->
+
+    <div class="left bx-scroll">
+      <h2 class="heading">Resume Generator</h2>
+      <hr>
+      <form action="" class="form">
+        <h3 class="info-head">Personal Information </h3>
+
+      <div class="input-fields">
+        <label class="bx bx-user-pin" for=""> Your Name</label>
+        <input type="text"  id="name">             
+      </div>
+
+         
+      <div class="input-fields">
+        <label for="" class="bx bx-phone"> Phone No.</label>
+        <input type="number" id="number">             
+      </div>
+         
+      <div class="input-fields">
+        <label class="bx bx-current-location" for="">Your Address</label>
+       <textarea class="textArea" id="address" rows="3"></textarea>           
+      </div>
+
+      <div class="profile-img-container">
+        <label for="">Profile Photo : </label>
+        <input type="file" id="profileImage" accept="image/*" >
+      </div>
+
+      <h4 class="sub-head">Important links</h4>
+
+      <div class="links-container">
+        <div class="input-fields">
+          <label for="" class='bx bx-envelope'>Email Id</label>
+          <input type="email" id="email">             
+        </div>
+
+        <div class="input-fields"> 
+          <label for="" class='bx bxl-github'>GitHub Profile</label>
+          <input type="text" id="github">             
+        </div>
+
+        <div class="input-fields">
+          <label for="" class='bx bxl-linkedin-square'>linkedIn</label>
+          <input type="text" id="linkedin">             
+        </div>
+      </div>
+
+      <h3 class="info-head">Professional Information </h3>
+
+      <div class="input-fields">
+        <label for="">Objective</label>
+       <textarea class="textArea" id="obj" rows="3"></textarea>           
+      </div>
+
+      <div class="education wrapper">
+        <div class="input-fields ed-details">
+          <label for="">Education/Qualification</label>
+
+          <div class="edu-row">
+            <input type="text" class="university" placeholder="Institute/University">
+            <input type="text" class="degree" placeholder="Degree/Certificate">
+            <input type="number" class="percentage" placeholder="Percentage" min="0" max="100">
+            <input type="text" class="year" placeholder="Year">
+            
+          </div>   
+
+        </div>
+        <button class="btns" onClick="addMoreInfo(event, 'education')">Add</button> 
+      </div>
+
+     <div class="workExp-container wrapper">    
+      <div class="input-fields work-ex">
+        <label for="">Work Experience</label>
+       <textarea class="textArea bx-scroll" rows="3"></textarea>          
+      </div>
+      <button class="btns" onClick="addMoreInfo(event, 'experience')">Add</button>
+     </div>
+
+     <div class="projects wrapper">    
+      <div class="input-fields proj-content">
+        <label for="">Projects</label>
+        <input type="text" id="project-title" placeholder="Project Title...">
+       <textarea class="textArea bx-scroll" rows="3" placeholder="Description..."></textarea>          
+      </div>
+      <button class="btns" onClick="addMoreInfo(event, 'projects')">Add</button>
+     </div>
+   
+      <div class="input-fields">
+        <label for="">Skills</label>
+       <textarea class="textArea bx-scroll" id="skills" rows="3"></textarea>          
+      </div>
+    
+      <div class="achieve-container wrapper">    
+        <div class="input-fields AC-list">
+          <label for="">Achievements</label>
+         <textarea class="textArea bx-scroll" rows="3"></textarea>          
+        </div>
+        <button class="btns" onClick="addMoreInfo(event, 'achievement')">Add</button>
+       </div>
+
+      <div class="input-fields">
+        <label for="">Languages</label>
+       <textarea class="textArea bx-scroll" id="language" rows="3"></textarea>          
+      </div>
+
+     
+      <button class="sb-btn" onclick="submitForm(event)">CV Generate</button>
+      </form>
+    </div>
+
+    <!-- right-side -->
+  
+    <div class="right  bx-scroll">
+    <div class="resume-page">
+      
+     <div class="profile-view">
+      <div class="profile-container">
+        <div class="pro-area">
+          <img src="assets/profile.png" alt="profile-img" >
+        </div>
+      </div>
+
+      <div class="contact">
+        <h2 class="pro-head">contact</h2>
+        <hr>
+
+        <div class="contact-row">
+          <i class='bx bxs-phone'></i>
+          <p id="DS-number">123-456-7890</p>
+        </div>
+        <div class="contact-row">
+        <i class='bx bxl-gmail'></i>
+          <p id="DS-email">username@gmail.com</p>
+        </div>
+        <div class="contact-row">
+          <i class='bx bxs-location-plus'></i>
+          <p id="DS-address">Lorem, ipsum 77 Seventh, Post Code,NY</p>
+        </div>
+
+        <div class="media-icon">
+         <a href="" id="DS-git-hub"> <i class='bx bxl-github'> </i></a>
+         <a href="" id="DS-linkedIn"> <i class='bx bxl-linkedin'></i></a> 
+        </div>
+      </div>
+
+      <div class="skills-sec">
+        <h2 class="pro-head">Skills</h2>
+        <hr>
+        <p id="DS-skill">HTML, css, bootstrap, reactJs, Java, Etc</p>
+      </div>
+
+      <div class="language-sec">
+        <h2 class="pro-head">Languages</h2>
+        <hr>
+        <p id="DS-language">English,Hindi,Spanish Etc</p>
+      </div>
+
+     </div>
+
+
+     <div class="content-view">
+
+      <div class="title">
+        <div>
+        <h1 id="cv-title">user name</h1>
+      </div>
+      </div>
+     
+      <div class="content-bx objective">
+        <h2 class="sub-title">Objective</h2>
+        <hr>
+        <p class="text" id="DS-obj">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere dolor minus eos sit quos accusantium sequi libero, totam accusamus illum?</p>
+      </div>
+
+      <div class="content-bx">
+
+        <h2 class="sub-title">Education</h2>
+        <hr>
+        <div class="clg-details-container">
+
+          <div class="clg-info-row">
+            <div class="DG-info"> 
+              <h4>College/University Name</h4>
+              <h4>2023</h4>
+            </div>
+            <div class="DG-info">
+                <p>Bachelor of Engineering</p>
+                <p>90%</p>
+            </div> 
+          </div>
+
+          <div class="clg-info-row">
+            <div class="DG-info"> 
+              <h4>College/University Name</h4>
+              <h4>2023</h4>
+            </div>
+            <div class="DG-info">
+                <p>Bachelor of Engineering</p>
+                <p>90%</p>
+            </div> 
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="content-bx">
+        <h2 class="sub-title">Work Experience</h2>
+        <hr>
+       <ul class="work-list">
+        <li>Work experience 1</li>
+        <li>Work experience 2</li>
+       </ul>
+      </div>
+
+      <div class="content-bx">
+        <h2 class="sub-title">Projects</h2>
+        <hr>
+        <ul class="projects-list">
+          <li><h5>Project Name:</h5>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing.</p>
+          </li>
+          <li><h5>Project Name:</h5>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis, repudiandae?</p>
+            </li>
+         </ul>
+      </div>
+
+      <div class="content-bx">
+        <h2 class="sub-title">Achievements</h2>
+        <hr>
+        <ul class="achievement-list">
+          <li>Achievement 1</li>
+          <li>Achievement 2</li>
+         </ul>
+      </div>
+    
+      
+
+
+     </div>
+     </div>
+
+     <div class="download-cv">
+      <button id="download" onclick="downloadCV()">Download <i class='bx bxs-download'></i></button>
+     </div>
+    </div>
+
+  </div>
+  <script src="form1.js"></script>
+</body>
+</html>
